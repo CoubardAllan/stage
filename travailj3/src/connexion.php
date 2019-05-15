@@ -18,4 +18,8 @@ require_once 'src/request.php';
         {
         return $this->connexion;
         }
+        public function setConnexion($connexion)
+        {
+            $this->connexion = $connexion;
+        }
     }

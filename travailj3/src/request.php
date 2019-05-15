@@ -24,20 +24,39 @@ class request
 
     public function insertion($table, $data)
     {
-        $pdst = "INSERT INTO".$table."() VALUES .$data)";
+
+
+
+        $pdst = "INSERT INTO" .$table." VALUES" .$data;
+        var_dump($pdst);
+
+        $this->base->getConnexion()->exec($pdst);
+
+        echo "L'ajout a été effectuer";
     }
 
 
 
     public function delete($table, $id)
     {
-        $this->base->getConnexion()->exec("DELETE FROM".$table."WHERE id = ".$id);
+
+        $query = "DELETE FROM ".$table." WHERE id = ".$id;
+        var_dump($query);
+        $this->base->getConnexion()->exec($query);
+
     }
 
+    public function maj($vtable,$tableau){
+        foreach ($vtable as $key){
+            if ($vtable > count(1)){
 
-    public function maj(){
-        
+            }else{
+
+            }
+        }
+
     }
+
 }
 
 
