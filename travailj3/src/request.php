@@ -47,14 +47,13 @@ class request
     }
 
     public function maj($vtable,$tableau){
-        foreach ($vtable as $key){
-            if ($vtable > count(1)){
+    foreach ($vtable as $key)
+            if (array_key_exists('id',$tableau)){
+                $this->base->getConnexion()->exec('UPDATE '.$vtable.' SET'.$tableau.'WHERE id =');
 
-            }else{
-
+            }else {
+                echo 'non';
             }
-        }
-
     }
 
 }

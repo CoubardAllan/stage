@@ -7,4 +7,3 @@ echo'
 ';
 
 $requete->delete('utilisateurs',38);
-$requete->maj();
