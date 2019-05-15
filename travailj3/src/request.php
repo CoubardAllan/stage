@@ -47,7 +47,7 @@ class request
     }
 
     public function maj($vtable,$tableau){
-    foreach ($vtable as $key)
+    foreach ($tableau as $key)
             if (array_key_exists('id',$tableau)){
                 $this->base->getConnexion()->exec('UPDATE '.$vtable.' SET'.$tableau.'WHERE id =');
 
