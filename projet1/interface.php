@@ -34,9 +34,9 @@
         $query = new personnagerequest();
         $data = $query->recuperation('personnage');
         foreach ($data as $row) {
-            echo '<td style="border : 1px solid black">'['nom'].'</td>';
-            echo '<td style="border : 1px solid black">'['prenom'].'</td>';
-            echo '<td style="border : 1px solid black">'['pseudo'].'</td>';
+            echo '<td style="border : 1px solid black"></td>';
+            echo '<td style="border : 1px solid black"></td>';
+            echo '<td style="border : 1px solid black"></td>';
 
             }
         ?>
