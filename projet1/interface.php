@@ -28,10 +28,11 @@
     <?php
     require_once 'src/personnage.php';
     require_once 'src/connexionbdd.php';
-        echo '<td style="border : 1px solid black">' . ['nom'] . '</td>';
-        echo '<td style="border : 1px solid black">' . ['prenom'] . '</td>';
-        echo '<td style="border : 1px solid black">' . ['pseudo'] . '</td>';
-        ?>
+    foreach ($this->connexion->getConnexion()->query('SELECT nom, prenom, pseudo FROM personnage') as $row) {
+        echo '<td style="border : 1px solid black">' .$row['nom'] . '</td>';
+        echo '<td style="border : 1px solid black">' .$row['prenom'] . '</td>';
+        echo '<td style="border : 1px solid black">' .$row['pseudo'] . '</td>';
+    }   ?>
     </tr>
     </tbody>
     </thead>

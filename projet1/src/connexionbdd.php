@@ -1,5 +1,6 @@
 <?php
-
+require_once 'personnage.php';
+require_once 'personnagerequest.php';
 class connexion{
     private $connexion;
 

@@ -1,5 +1,5 @@
 <?php
-require 'src/connexionbdd.php';
+require_once 'src/connexionbdd.php';
 class personnage
 {
     private $nom;

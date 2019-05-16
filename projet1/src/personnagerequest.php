@@ -7,14 +7,17 @@ class personnagerequest{
     public function __construct()
     {
         $this->connexion = new connexion();
+
     }
 
     public function recuperation($table){
-        $requete = 'SELECT nom, prenom, pseudo FROM '.$table;
+        $perso=array();
         foreach ($this->connexion->getConnexion()->query('SELECT nom, prenom, pseudo FROM '.$table) as $row){
-            print $row['nom']. "\t";
-            print $row['prenom']. "\t";
-            print $row['pseudo']. "\n";
+            $personnage = new personnage();
+            $this->setNom($row['nom']);
+            $this->setPrenom($row['prenom']);
+            $this->setPseudo($row['pseudo']);
+            $perso[]= $personnage;
         }
     }
 }
