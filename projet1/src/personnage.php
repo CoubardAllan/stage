@@ -1,20 +1,40 @@
 <?php
 require 'src/connexionbdd.php';
-class personnage{
-    private $personnage;
+class personnage
+{
+    private $nom;
+    private $prenom;
+    private $pseudo;
+
 
     //getter
-    public function __construct()
+    public function getNom()
     {
-        $this->personnage = new connexionbdd();
+        return $this->nom;
+    }
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+    public function getPseudo()
+    {
+        return $this->pseudo;
     }
 
-    //fonction
-    public function recuperation($table){
-        foreach ($this->personnage->getConnexion()->query('SELECT nom, prenom, pseudo FROM '.$table) as $row){
-            print $row['nom']. "\t";
-            print $row['prenom']. "\t";
-            print $row['pseudo']. "\n";
-        }
+
+
+    //setter
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
     }
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+    }
+
 }

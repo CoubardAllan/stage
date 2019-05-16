@@ -1,6 +1,6 @@
 <?php
 
-class connexionbdd{
+class connexion{
     private $connexion;
 
     public function __construct()
