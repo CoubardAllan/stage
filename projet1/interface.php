@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,8 +7,9 @@
     <table class="table table-bordered table-dark">
         <thead>
         <tr>
+            <span class="border">
             <th scope="col"><center>mes personnage</center></th>
-
+            </span>
         </tr>
 </head>
 <body >
@@ -21,16 +23,22 @@
     </tr>
     </thead>
     <thead>
+    <tbody>
     <tr>
-
-        <th scope="col"><center>test</center></th>
-        <th scope="col"><center>test</center></th>
-        <th scope="col"><center>test</center></th></th>
+    <?php
+    require_once 'src/personnage.php';
+    require_once 'src/connexionbdd.php';
+        echo '<td style="border : 1px solid black">' . ['nom'] . '</td>';
+        echo '<td style="border : 1px solid black">' . ['prenom'] . '</td>';
+        echo '<td style="border : 1px solid black">' . ['pseudo'] . '</td>';
+        ?>
     </tr>
+    </tbody>
     </thead>
+
 </table>
-    <form method="post" action="src/ajoutformulaire.php" >
-        <a href="src/ajoutformulaire.php"> <input type="button" value="ajout d'un personnage"></a>
+    <form method="post" action="ajoutformulaire.php" >
+        <a href="ajoutformulaire.php"> <input type="button" value="ajout d'un personnage"></a>
 
     </form>
 

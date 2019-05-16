@@ -1,3 +1,5 @@
+<?php
+?>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <!doctype HTML>
@@ -10,7 +12,7 @@
 
 <H1><center> Ajout d'un article </center></H1><br><br>
 
-<a href="/projet1/interface.html">>Retour<</a><h4> <br><br><br><br>
+<a href="interface.php">>Retour<</a><h4> <br><br><br><br>
 
     <form method="post">
         <label>nom Personnage</label><input type="varchar" name="Titre"><br>
