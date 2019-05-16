@@ -34,9 +34,9 @@
         $query = new personnagerequest();
         $data = $query->recuperation('personnage');
         foreach ($data as $row) {
-            echo '<td style="border : 1px solid black"></td>';
-            echo '<td style="border : 1px solid black"></td>';
-            echo '<td style="border : 1px solid black"></td>';
+            echo '<td style="border : 1px solid black">. $data->getNom() .</td>';
+            echo '<td style="border : 1px solid black">.$data->getPrenom().</td>';
+            echo '<td style="border : 1px solid black">.$data->getPseudo.</td>';
 
             }
         ?>
