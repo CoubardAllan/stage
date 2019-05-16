@@ -18,6 +18,7 @@ class personnagerequest{
             $this->setPrenom($row['prenom']);
             $this->setPseudo($row['pseudo']);
             $perso[]= $personnage;
+            return $perso;
         }
     }
 }
