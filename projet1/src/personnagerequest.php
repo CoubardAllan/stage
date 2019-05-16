@@ -11,14 +11,14 @@ class personnagerequest{
     }
 
     public function recuperation($table){
-        $perso=array();
+        $perso=[];
         foreach ($this->connexion->getConnexion()->query('SELECT nom, prenom, pseudo FROM '.$table) as $row){
             $personnage = new personnage();
-            $this->setNom($nom['nom']);
-            $this->setPrenom($prenom['prenom']);
-            $this->setPseudo($pseudo['pseudo']);
+            $this->setNom($row['nom']);
+            $this->setPrenom($row['prenom']);
+            $this->setPseudo($row['pseudo']);
             $perso[]= $personnage;
-            return $perso;
         }
+        return $perso;
     }
 }

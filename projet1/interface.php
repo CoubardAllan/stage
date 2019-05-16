@@ -11,6 +11,8 @@
             <th scope="col"><center>mes personnage</center></th>
             </span>
         </tr>
+        </thead>
+    </table>
 </head>
 <body >
 <table class="table table-bordered table-dark">
@@ -29,13 +31,15 @@
         require_once ('src/personnage.php');
         require_once ('src/connexionbdd.php');
         require_once ('src/personnagerequest.php');
-        $persooo = new personnagerequest();
-        $persooo->recuperation('personnage');
-        foreach ($persooo as $row) {
-            echo '<td style="border : 1px solid black">' .$row['nom'] . '</td>';
-            echo '<td style="border : 1px solid black">' .$row['prenom'] . '</td>';
-            echo '<td style="border : 1px solid black">' .$row['pseudo'] . '</td>';
-        }   ?>
+        $query = new personnagerequest();
+        $data = $query->recuperation('personnage');
+        foreach ($data as $row) {
+            echo '<td style="border : 1px solid black">'.$query->getNom()['nom'].'</td>';
+            echo '<td style="border : 1px solid black">'.$query->getPrenom()['prenom'].'</td>';
+            echo '<td style="border : 1px solid black">'.$query->getPseudo()['pseudo'].'</td>';
+
+            }
+        ?>
     </tr>
     </tbody>
     </thead>
