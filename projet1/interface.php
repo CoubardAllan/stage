@@ -25,14 +25,17 @@
     <thead>
     <tbody>
     <tr>
-    <?php
-    require_once 'src/personnage.php';
-    require_once 'src/connexionbdd.php';
-    foreach ($this->connexion->getConnexion()->query('SELECT nom, prenom, pseudo FROM personnage') as $row) {
-        echo '<td style="border : 1px solid black">' .$row['nom'] . '</td>';
-        echo '<td style="border : 1px solid black">' .$row['prenom'] . '</td>';
-        echo '<td style="border : 1px solid black">' .$row['pseudo'] . '</td>';
-    }   ?>
+        <?php
+        require_once ('src/personnage.php');
+        require_once ('src/connexionbdd.php');
+        require_once ('src/personnagerequest.php');
+        $persooo = new personnagerequest();
+        $persooo->recuperation('personnage');
+        foreach ($persooo as $row) {
+            echo '<td style="border : 1px solid black">' .$row['nom'] . '</td>';
+            echo '<td style="border : 1px solid black">' .$row['prenom'] . '</td>';
+            echo '<td style="border : 1px solid black">' .$row['pseudo'] . '</td>';
+        }   ?>
     </tr>
     </tbody>
     </thead>

@@ -1,6 +1,7 @@
 <?php
 require_once 'src/connexionbdd.php';
 require_once 'src/personnagerequest.php';
+require_once 'interface.php';
 class personnage
 {
     private $nom;

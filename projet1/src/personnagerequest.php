@@ -14,9 +14,9 @@ class personnagerequest{
         $perso=array();
         foreach ($this->connexion->getConnexion()->query('SELECT nom, prenom, pseudo FROM '.$table) as $row){
             $personnage = new personnage();
-            $this->setNom($row['nom']);
-            $this->setPrenom($row['prenom']);
-            $this->setPseudo($row['pseudo']);
+            $this->setNom($nom['nom']);
+            $this->setPrenom($prenom['prenom']);
+            $this->setPseudo($pseudo['pseudo']);
             $perso[]= $personnage;
             return $perso;
         }
