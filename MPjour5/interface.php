@@ -26,8 +26,9 @@
     <thead>
     <tbody>
     <tr>
+        <thead class="thead-dark">
 
-        <div class="invisible">
+    <div class="invisible">
 
         <?php
         require_once 'src/connexion.php';
@@ -36,7 +37,7 @@
         $query = new requete();
         $afficher = $query->recup('personnage');
         foreach ($afficher as $row){
-
+            echo '<thead class="thead-dark">';
             echo '<td style="border : 1px solid black"><center>'. $row->getPrenom() .'</center></td>';
             echo '<td style="border : 1px solid black"><center>'.   $row->getNom() .'</center></td>';
             echo '<td style="border : 1px solid black"><center>'. $row->getPseudo() .'</center></td>';
@@ -46,6 +47,7 @@
         ?>
 
         </div>
+    </thead>
     </tr>
     </tbody>
     </thead>
