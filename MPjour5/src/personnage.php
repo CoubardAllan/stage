@@ -2,9 +2,11 @@
 require_once 'src/connexion.php';
 require_once 'src/requete.php';
 class personnage{
+
     private $nom;
     private $prenom;
     private $pseudo;
+
 
 
     public function setPseudo($pseudo)
