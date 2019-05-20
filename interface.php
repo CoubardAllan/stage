@@ -29,19 +29,20 @@
                         require_once 'src/connexion.php';
                         require_once 'src/articles.php';
                         $query = new requete();
-                        $afficher = $query->selection('articles');
-                        foreach ($afficher as $row) {
+                        $afficher = $query->selection('articles'); ?>
+                        <?php foreach ($afficher as $row) {
                             $classRow = '';
-                            if (($row->getPrix()) < 5) {
-                                $classRow = 'text-danger';
-                            } elseif (($row->getPrix() >= 5) && ($row->getPrix() < 15)) {
-                                $classRow = 'text-warning';
-                            }
-                        ?>
+                            if (($row->getPrix()) < 5)
+                            {
+                                    $classRow = 'text-danger';
+                             }elseif (($row->getPrix() >= 5) && ($row->getPrix() < 15)){
+                                    $classRow = 'text-warning';
+                             } ?>
                         <tr>
                         <th scope="row"><?php echo $row->getLibelle()  ?></th>
                         <td class="<php echo $classRow ?>"><?php echo $row->getPrix() ?></td>
-                         </tr>
+                        </tr>
+                    <?php } ?>
                     </tr>
                     </tbody>
                 </table>
