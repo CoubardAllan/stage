@@ -28,13 +28,13 @@ if ($_POST){
                             <input type="text" class="form-control" name="libelle">
                         </div>
                         <div class="col-12 no-padding form-group">
-                            <label>prix</label>
+                            <label >prix</label>
                             <input type="number" class="form-control" name="prix">
                         </div>
                         <div class="col-12 no-padding">
                             <button type="submit" class="btn btn-primary">save</button>
                         </div>
-                        <div>
+                        <div class="col-12 no-padding">
                         <a href="interface.php">>voir mes articles<</a>
                         </div>
                 </div>

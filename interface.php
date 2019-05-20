@@ -30,9 +30,15 @@
                         $query = new requete();
                         $afficher = $query->selection('articles');
                         foreach ($afficher as $row) {
-                            echo '<tr>';
-                            echo '<th scope="row">'.$row->getLibelle().'</th>';
-                            echo '<td>' .$row->getPrix(). '</td>';
+                            if (($row->getPrix()) > 0 && ($row->getPrix()) < 5) {
+                                echo '<tr>';
+                                echo '<th scope="row">' . $row->getLibelle() . '</th>';
+                                echo '<td><p class="text-danger">' . $row->getPrix() . '</p></td>';
+                                echo '</tr>';
+                            }elseif (($row->getPrix()) > 5)
+                                echo '<tr>';
+                            echo '<th scope="row">' . $row->getLibelle() . '</th>';
+                            echo '<td><p class="text-warning">' . $row->getPrix() . '</p></td>';
                             echo '</tr>';
                         }
                         ?>

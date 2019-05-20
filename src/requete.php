@@ -18,9 +18,9 @@ class requete{
         return $tableau;
     }
     public function insertion($data){
-        if ((isset($data['libelle']) || isset($data['prix'])) && (!empty($data['prix']) || !empty($data['libelle'])) ){
-            $query = 'INSERT INTO articles(libelle, prix) VALUES (?,?)';
-            $this->connexion->prepare($query)->execute([$data['libelle'],$data['prix']]);
+        if ( (isset($data['libelle']) || isset($data['prix']) ) && (!empty($data['prix']) || !empty($data['libelle'])) ){
+            $requete = 'INSERT INTO articles( libelle, prix) VALUES (?,?)';
+            $this->connexion->getConnexion()->prepare($requete)->execute([$data['libelle'],$data['prix']]);
         }
     }
 }
