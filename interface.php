@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html class="thead-dark">
 <head>
+    <link rel="stylesheet" type="text/css" href="css.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -35,11 +36,11 @@
                                 echo '<th scope="row">' . $row->getLibelle() . '</th>';
                                 echo '<td><p class="text-danger">' . $row->getPrix() . '</p></td>';
                                 echo '</tr>';
-                            }elseif (($row->getPrix()) > 5)
+                            }elseif (($row->getPrix()) > 6 && ($row->getPrix()) < 15)
                                 echo '<tr>';
-                            echo '<th scope="row">' . $row->getLibelle() . '</th>';
-                            echo '<td><p class="text-warning">' . $row->getPrix() . '</p></td>';
-                            echo '</tr>';
+                                echo '<th scope="row">' . $row->getLibelle() . '</th>';
+                                echo '<td><p class="text-warning">' . $row->getPrix() . '</p></td>';
+                                echo '</tr>';
                         }
                         ?>
                     </tr>
