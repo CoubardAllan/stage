@@ -32,24 +32,16 @@
                         $afficher = $query->selection('articles');
                         foreach ($afficher as $row) {
                             $classRow = '';
-                            if (($row->getPrix()) < 5)
-                            {
-                                $classRow = '<p class="text-danger" </p>';
-                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td>' .$classRow.$row->getPrix() . '</td></tr>';
+                            if (($row->getPrix()) < 5) {
+                                $classRow = 'text-danger';
+                            } elseif (($row->getPrix() >= 5) && ($row->getPrix() < 15)) {
+                                $classRow = 'text-warning';
                             }
-                            elseif (($row->getPrix() >= 5) && ($row->getPrix() < 15))
-                            {
-                                $classRow = '<p class="text-warning" </p>';
-                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td>' .$classRow.$row->getPrix() . '</td></tr>';
-                            }
-                            elseif (($row->getPrix()) > 15)
-                            {
-                                $classRow = '<p class="text-success" </p>';
-                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td>' .$classRow.$row->getPrix() . '</td></tr>';
-                            }
-                        }
                         ?>
-                        <p class= <?php echo $classRow; ?></p>
+                        <tr>
+                        <th scope="row"><?php echo $row->getLibelle()  ?></th>
+                        <td class="<php echo $classRow ?>"><?php echo $row->getPrix() ?></td>
+                         </tr>
                     </tr>
                     </tbody>
                 </table>
