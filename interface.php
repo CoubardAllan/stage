@@ -31,16 +31,18 @@
                         $query = new requete();
                         $afficher = $query->selection('articles');
                         foreach ($afficher as $row) {
-                            if (($row->getPrix()) > 0 && ($row->getPrix()) < 5) {
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row->getLibelle() . '</th>';
-                                echo '<td><p class="text-danger">' . $row->getPrix() . '</p></td>';
-                                echo '</tr>';
-                            }elseif (($row->getPrix()) > 6 && ($row->getPrix()) < 15)
-                                echo '<tr>';
-                                echo '<th scope="row">' . $row->getLibelle() . '</th>';
-                                echo '<td><p class="text-warning">' . $row->getPrix() . '</p></td>';
-                                echo '</tr>';
+                            if (($row->getPrix()) < 5)
+                            {
+                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td><p class="text-danger">' . $row->getPrix() . '</p></td></tr>';
+                            }
+                            elseif (($row->getPrix() >= 5) && ($row->getPrix() < 15))
+                            {
+                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td><p class="text-warning">' . $row->getPrix() . '</p></td></tr>';
+                            }
+                            elseif (($row->getPrix()) > 15)
+                            {
+                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td><p class="text-success">' . $row->getPrix() . '</p></td></tr>';
+                            }
                         }
                         ?>
                     </tr>
