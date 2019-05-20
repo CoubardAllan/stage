@@ -31,22 +31,26 @@
                         $query = new requete();
                         $afficher = $query->selection('articles');
                         foreach ($afficher as $row) {
+                            $classRow = '';
                             if (($row->getPrix()) < 5)
                             {
-                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td><p class="text-danger">' . $row->getPrix() . '</p></td></tr>';
+                                $classRow = '<p class="text-danger" </p>';
+                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td>' .$classRow.$row->getPrix() . '</td></tr>';
                             }
                             elseif (($row->getPrix() >= 5) && ($row->getPrix() < 15))
                             {
-                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td><p class="text-warning">' . $row->getPrix() . '</p></td></tr>';
+                                $classRow = '<p class="text-warning" </p>';
+                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td>' .$classRow.$row->getPrix() . '</td></tr>';
                             }
                             elseif (($row->getPrix()) > 15)
                             {
-                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td><p class="text-success">' . $row->getPrix() . '</p></td></tr>';
+                                $classRow = '<p class="text-success" </p>';
+                                echo '<tr><th scope="row">' . $row->getLibelle() . '</th><td>' .$classRow.$row->getPrix() . '</td></tr>';
                             }
                         }
                         ?>
+                        <p class= <?php echo $classRow; ?></p>
                     </tr>
-
                     </tbody>
                 </table>
             </div>
