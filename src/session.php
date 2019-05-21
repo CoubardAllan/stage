@@ -8,7 +8,6 @@ class session{
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
             $_SESSION['message'] = 'ajout fait';
-            header('Location: interface.php');
         }
     }
 
