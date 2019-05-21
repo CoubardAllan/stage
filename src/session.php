@@ -4,23 +4,23 @@ require_once 'src/articles.php';
 require_once 'src/requete.php';
 class session{
     private $session;
-    public function message($message){
+    public function __construct(){
         if (session_status() === PHP_SESSION_ACTIVE) {
             echo 'erreur';
         }else{
             session_start();
-            $_SESSION['message'] = $message;
+            $_SESSION['message'] = 'ajout fait';
             header('Location: interface.php');
         }
     }
 
 
-    public function getSession()
+    public function get($key)
     {
-        return $this->session;
+        return $_SESSION[$key];
     }
-    public function setSession($session)
+    public function set($key, $values)
     {
-        $this->session = $session;
+        $_SESSION[$key]=  $values;
     }
 }
