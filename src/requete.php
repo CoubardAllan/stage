@@ -21,6 +21,9 @@ class requete{
         if ( (isset($data['libelle']) || isset($data['prix']) ) && (!empty($data['prix']) || !empty($data['libelle'])) ){
             $requete = 'INSERT INTO articles( libelle, prix) VALUES (?,?)';
             $this->connexion->getConnexion()->prepare($requete)->execute([$data['libelle'],$data['prix']]);
+            session_start();
+            $_SESSION['message'] = 'ajout fait';
+            header('Location: interface.php');
         }
     }
 }

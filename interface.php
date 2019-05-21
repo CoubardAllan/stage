@@ -1,9 +1,9 @@
 <?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html class="thead-dark">
 <head>
-    <link rel="stylesheet" type="text/css" href="css.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -14,6 +14,12 @@
         <div class="col-8 mx-auto">
 
             <div class="row">
+                <?php if(!empty($_SESSION['message'])) : ?>
+                    <div class="alert alert-primary" role="alert">
+                        <?php echo $_SESSION['message'] ?>
+                        <?php unset($_SESSION['message']) ?>
+                    </div>
+                <?php endif ?>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -30,7 +36,7 @@
                         require_once 'src/articles.php';
                         $query = new requete();
                         $afficher = $query->selection('articles'); ?>
-                        <?php foreach ($afficher as $row) {
+                        <?php foreach ($afficher as $row) :
                             $classRow = '';
                             if (($row->getPrix()) < 5)
                             {
@@ -39,10 +45,10 @@
                                     $classRow = 'text-warning';
                              } ?>
                         <tr>
-                        <th scope="row"><?php echo $row->getLibelle()  ?></th>
-                        <td class="<php echo $classRow ?>"><?php echo $row->getPrix() ?></td>
+                        <th scope="row"> <?php echo $row->getLibelle()  ?> </th>
+                        <td class=<?php echo $classRow ?>> <?php echo $row->getPrix() ?> </td>
                         </tr>
-                    <?php } ?>
+                    <?php endforeach ?>
                     </tr>
                     </tbody>
                 </table>

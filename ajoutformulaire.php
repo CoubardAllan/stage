@@ -1,8 +1,11 @@
 <?php
-if ($_POST){
-    require_once 'src/requete.php';
-    $insertion = new requete();
-    $insertion->insertion($_POST);
+if ($_POST) {
+        require_once 'src/requete.php';
+        session_start();
+        $insertion = new requete();
+        $insertion->insertion($_POST);
+        echo $_SESSION['message'];
+
 }
 
 ?>
