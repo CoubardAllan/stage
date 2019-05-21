@@ -23,7 +23,7 @@ class requete{
         if ((isset($data['libelle']) || (isset($data['prix'])) && (!empty($data['libelle'])) || (!empty($data['prix'])) )){
             $requete = 'INSERT INTO articles( libelle, prix) VALUES (?,?)';
             $this->connexion->getConnexion()->prepare($requete)->execute([$data['libelle'],$data['prix']]);
-            $message->message('ajout fait');
+            $message->('ajout fait');
 
         }
     }

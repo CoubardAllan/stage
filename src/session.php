@@ -5,9 +5,7 @@ require_once 'src/requete.php';
 class session{
     private $session;
     public function __construct(){
-        if (session_status() === PHP_SESSION_ACTIVE) {
-            echo 'erreur';
-        }else{
+        if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
             $_SESSION['message'] = 'ajout fait';
             header('Location: interface.php');

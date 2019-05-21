@@ -44,8 +44,5 @@ if ($_POST) {
         </div>
     </div>
 </div>
-<pre>
-    <?php var_dump($_SERVER) ?>
-</pre>
 </body>
 </html>

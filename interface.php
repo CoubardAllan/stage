@@ -55,8 +55,5 @@ session_start();
     </div>
     <a href="ajoutarticles.php">>ajout d'un articles<</a><h4> <br><br><br><br>
 </div>
-<pre>
-    <?php var_dump($_SERVER) ?>
-</pre>
 </body>
 </html>
