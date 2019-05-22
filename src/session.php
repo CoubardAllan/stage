@@ -20,4 +20,11 @@ class session{
     {
         $_SESSION[$key]=  $values;
     }
+    public function existe($key){
+        if ((!empty($_SESSION[$key])) && (isset($_SESSION[$key]))  ){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

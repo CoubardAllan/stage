@@ -14,9 +14,9 @@ session_start();
                 <?php require_once 'src/session.php'; ?>
                 <?php if (!empty($_SESSION['message'])) : ?>
                     <?php $session = new session(); ?>
-                    <?php if (!empty($session->get('message')) && (defined($session->get('message'))) ) :?>
+                    <?php if (!is_null($session->get('message')) || (defined($session->get('message'))) ) :?>
                         <div class="alert alert-primary" role="alert">
-                            <?php $session->get('message'); ?>
+                            <?php echo $session->get('message'); ?>
                             <?php unset($_SESSION['message']); ?>
                         </div>
                     <?php endif ?>
