@@ -5,11 +5,11 @@ class requete{
     private $connexion;
     public function __construct()
     {
-        $this->connexion = new connexion();
+        connexion::getConnexion();
     }
     public function selection($table){
         $tableau = [];
-        foreach ($this->connexion->getConnexion()->query('SELECT libelle, prix FROM '.$table)as $row){
+        foreach (connexion::getConnexion()->query('SELECT libelle, prix FROM '.$table)as $row){
             $articles = new articles();
             $articles->setLibelle($row['libelle']);
             $articles->setPrix($row['prix']);
@@ -21,7 +21,7 @@ class requete{
         require_once 'src/session.php';
         if ((isset($data['libelle']) || (isset($data['prix'])) && (!empty($data['libelle'])) || (!empty($data['prix'])) )){
             $requete = 'INSERT INTO articles( libelle, prix) VALUES (?,?)';
-            $this->connexion->getConnexion()->prepare($requete)->execute([$data['libelle'],$data['prix']]);
+            connexion::getConnexion()->prepare($requete)->execute([$data['libelle'],$data['prix']]);
             $message = new session();
             $message->set('message','ajout fait');
             header('Location: interface.php');
