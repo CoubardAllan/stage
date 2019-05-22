@@ -12,15 +12,14 @@ session_start();
         <div class="col-8 mx-auto">
             <div class="row">
                 <?php require_once 'src/session.php'; ?>
-                <?php if (!empty($_SESSION['message'])) : ?>
                     <?php $session = new session(); ?>
-                    <?php $session->existe('message') ?>
-                        <div class="alert alert-primary" role="alert">
-                            <?php echo $session->get('message'); ?>
-                            <?php unset($_SESSION['message']); ?>
-                        </div>
-                <?php endif ?>
-                <table class="table table-bordered">
+                        <?php $session->set('message','ajout fait'); ?>
+                            <?php $session->existe('message'); ?>
+                                <div class="alert alert-primary" role="alert">
+                                    <?php echo $session->get('message'); ?>
+                                    <?php  unset($_SESSION['message']); ?>
+                                </div>
+                    <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th scope="col">libelle</th>
