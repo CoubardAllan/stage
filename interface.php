@@ -13,11 +13,13 @@ session_start();
             <div class="row">
                 <?php require_once 'src/session.php'; ?>
                 <?php if (!empty($_SESSION['message'])) : ?>
-                <div class="alert alert-primary" role="alert">
                     <?php $session = new session(); ?>
-                    <?php $session->get('message'); ?>
-                    <?php unset($_SESSION['message']); ?>
-                </div>
+                    <?php if (!empty($session->get('message')) && (defined($session->get('message'))) ) :?>
+                        <div class="alert alert-primary" role="alert">
+                            <?php $session->get('message'); ?>
+                            <?php unset($_SESSION['message']); ?>
+                        </div>
+                    <?php endif ?>
                 <?php endif ?>
                 <table class="table table-bordered">
                     <thead>
