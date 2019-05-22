@@ -11,10 +11,12 @@ session_start();
     <div class="row margin-top">
         <div class="col-8 mx-auto">
             <div class="row">
+                <?php require_once 'src/session.php'; ?>
                 <?php if (!empty($_SESSION['message'])) : ?>
                 <div class="alert alert-primary" role="alert">
-                    <?php echo $_SESSION['message'] ?>
-                    <?php unset($_SESSION['message']) ?>
+                    <?php $session = new session(); ?>
+                    <?php $session->get('message'); ?>
+                    <?php unset($_SESSION['message']); ?>
                 </div>
                 <?php endif ?>
                 <table class="table table-bordered">

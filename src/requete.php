@@ -19,13 +19,12 @@ class requete{
     }
     public function insertion($data){
         require_once 'src/session.php';
-        $message = new session();
         if ((isset($data['libelle']) || (isset($data['prix'])) && (!empty($data['libelle'])) || (!empty($data['prix'])) )){
             $requete = 'INSERT INTO articles( libelle, prix) VALUES (?,?)';
             $this->connexion->getConnexion()->prepare($requete)->execute([$data['libelle'],$data['prix']]);
+            $message = new session();
             $message->set('message','ajout fait');
             header('Location: interface.php');
-
         }
     }
 }
