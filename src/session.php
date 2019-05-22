@@ -8,17 +8,23 @@ class session{
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
-            self::$session = new session();
         }
     }
 
+    public static function getSession()
+    {
+        if (!isset(self::$session)) {
+            self::$session = new session();
+        }
+        return self::$session;
+    }
     public static function get($key)
     {
-        return $_SESSION[$key];
+            return self::$session =  $_SESSION[$key];
     }
     public static function set($key, $values)
     {
-        $_SESSION[$key]=  $values;
+           self::$session = $_SESSION[$key] = $values;
     }
     public static function existe($key){
         if ((!empty($_SESSION[$key])) && (isset($_SESSION[$key]))  ){
