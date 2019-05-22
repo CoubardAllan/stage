@@ -13,12 +13,12 @@ session_start();
             <div class="row">
                 <?php require_once 'src/session.php'; ?>
                     <?php $session = new session(); ?>
-                        <?php $session->set('message','ajout fait'); ?>
-                            <?php $session->existe('message'); ?>
+                            <?php if($session->existe('message')) :?>
                                 <div class="alert alert-primary" role="alert">
                                     <?php echo $session->get('message'); ?>
                                     <?php  unset($_SESSION['message']); ?>
                                 </div>
+                            <?php endif ?>
                     <table class="table table-bordered">
                     <thead>
                     <tr>
