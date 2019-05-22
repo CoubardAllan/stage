@@ -14,12 +14,11 @@ session_start();
                 <?php require_once 'src/session.php'; ?>
                 <?php if (!empty($_SESSION['message'])) : ?>
                     <?php $session = new session(); ?>
-                    <?php if (!is_null($session->get('message')) || (defined($session->get('message'))) ) :?>
+                    <?php $session->existe('message') ?>
                         <div class="alert alert-primary" role="alert">
                             <?php echo $session->get('message'); ?>
                             <?php unset($_SESSION['message']); ?>
                         </div>
-                    <?php endif ?>
                 <?php endif ?>
                 <table class="table table-bordered">
                     <thead>
