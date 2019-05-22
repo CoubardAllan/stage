@@ -1,11 +1,11 @@
 <?php
 class connexion{
-    protected static $connexion;
-    protected function __construct()
+    private static $connexion;
+    private function __construct()
     {
 
     }
-    public static function getInstance()
+    public static function getConnexion()
     {
         if(!isset(self::$connexion)) {
             $connexion_bdd = array(
