@@ -1,18 +1,24 @@
 <?php
 class connexion{
-    private $connexion;
-    public function __construct()
+    protected static $connexion;
+    protected function __construct()
     {
-        try{
-        $this->connexion = new PDO('mysql:host=localhost;dbname=mp1','root','');
-        }catch (PDOException $e){
-            echo '<br>'.$e->getMessage();
-        }
+
     }
-
-
-    public function getConnexion()
+    public static function getInstance()
     {
-        return $this->connexion;
+        if(!isset(self::$connexion)) {
+            $connexion_bdd = array(
+                "bdd_host" => "localhost",
+                "bdd_user" => "user",
+                "bdd_mdp" => "mdp");
+            try {
+                self::$connexion = new PDO('mysql:host=localhost;dbname=mp1','root','');
+
+            } catch(PDOException $e) {
+                echo '<br>'.$e->getMessage();
+            }
+        }
+        return self::$connexion;
     }
 }
