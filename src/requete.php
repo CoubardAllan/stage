@@ -3,9 +3,11 @@ require_once 'src/connexion.php';
 require_once 'src/articles.php';
 class requete{
     private $connexion;
+    private $session;
     public function __construct()
     {
         $this->connexion = connexion::getConnexion();
+
     }
     public function selection($table){
         $tableau = [];
@@ -22,8 +24,8 @@ class requete{
         if ((isset($data['libelle']) || (isset($data['prix'])) && (!empty($data['libelle'])) || (!empty($data['prix'])) )){
             $requete = 'INSERT INTO articles( libelle, prix) VALUES (?,?)';
             $this->connexion->prepare($requete)->execute([$data['libelle'],$data['prix']]);
-            $message = new ;
-            $message->set('message','ajout fait');
+            $this->session = session::getSession();
+            $this->session->set('message','ajout fait');
             header('Location: interface.php');
         }
     }
