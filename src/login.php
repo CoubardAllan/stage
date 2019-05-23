@@ -17,5 +17,7 @@ class login{
                 session_start();
                 header('Location: interface.php');
             }
+        var_dump($requete2);
+
         }
 }
