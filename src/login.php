@@ -10,9 +10,10 @@ class login{
         if(empty($_POST['compte']) && empty($_POST['mdp'])) {
             echo '<strong>champ nécessaire</strong>';
         }else{
-                $query = "SELECT * FROM utilisateur WHERE nom_compte = ".$_POST['compte']. "AND mot_de_passe = ".$_POST['mdp'];
-                $this->login->prepare($query)->execute([$_POST['compte'],$_POST['mdp']]);
-                $requete2 = $this->login->fetchAll();
+                $query = "SELECT * FROM utilisateur WHERE nom_compte = ? AND mot_de_passe = ?";
+                $result = $this->login->prepare($query);
+                $result->execute([$_POST['compte'],$_POST['mdp']]);
+                $requete2 = $result->fetchAll();
                 var_dump($requete2);
                 session_start();
             }
