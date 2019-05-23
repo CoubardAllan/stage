@@ -7,15 +7,13 @@ class login{
         $this->login = connexion::getConnexion();
     }
     public function identification(){
-        if(empty($_POST['nom_du_compte']) && empty($_POST['mot_de_passe'])){
-            echo 'champ nécessaire';
-            if (){
-
-            }else{
-                $query = "SELECT * FROM utilisateur WHERE nom_compte = ".$_POST['nom_du_compte']. "AND mot_de_passe = ".$_POST['mot_de_passe'];
+        if(empty($_POST['compte']) && empty($_POST['mdp'])) {
+            echo '<strong>champ nécessaire</strong>';
+        }elseif(!empty($_POST['compte']) && !empty($_POST['mdp'])){
+                $query = "SELECT * FROM utilisateur WHERE nom_compte = ".$_POST['compte']. "AND mot_de_passe = ".$_POST['mdp'];
+                $this->login->exec($query);
                 session_start();
                 header('Location: interface.php');
             }
         }
-    }
 }

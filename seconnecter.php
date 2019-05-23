@@ -26,10 +26,10 @@
     <form action="seconnecter.php" method="post">
         <h2 class="text-center"></h2>
         <div class="form-group">
-            <input type="text" name="nom_du_compte" class="form-control" placeholder="nom du compte" >
+            <input type="text" name="compte" class="form-control" placeholder="nom du compte" >
         </div>
         <div class="form-group">
-            <input type="password" name="mot_de_passe" class="form-control" placeholder="mot de passe" >
+            <input type="password" name="mdp" class="form-control" placeholder="mot de passe" >
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">connexion</button>
