@@ -12,7 +12,7 @@ session_start();
         <div class="col-8 mx-auto">
             <div class="row">
                 <?php require_once 'src/session.php'; ?>
-                    <?php $session = session::getSession();; ?>
+                    <?php $session = session::getSession(); ?>
                             <?php if($session->existe('message')) :?>
                                 <div class="alert alert-primary" role="alert">
                                     <?php echo $session->get('message'); ?>
