@@ -9,15 +9,12 @@ class login{
     public function identification(){
         if(empty($_POST['compte']) && empty($_POST['mdp'])) {
             echo '<strong>champ nécessaire</strong>';
-        }elseif((!empty($_POST['compte']) && !empty($_POST['mdp'])) && (isset($_POST['compte'])) && (isset($_POST['mdp']))){
+        }else{
                 $query = "SELECT * FROM utilisateur WHERE nom_compte = ".$_POST['compte']. "AND mot_de_passe = ".$_POST['mdp'];
-                $requete = $this->login->prepare($query);
-                $requete->execute($query);
-                $requete2 = $requete->fetchAll();
+                $this->login->prepare($query)->execute([$_POST['compte'],$_POST['mdp']]);
+                $requete2 = $this->login->fetchAll();
+                var_dump($requete2);
                 session_start();
-                header('Location: interface.php');
             }
-        var_dump($requete2);
-
         }
 }
