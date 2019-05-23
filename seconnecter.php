@@ -20,7 +20,10 @@
 </head>
 <body>
 <div class="login-form">
-    <form action="src/login.php" method="post">
+    <?php require_once 'src/login.php'; ?>
+    <?php $login = new login(); ?>
+    <?php $login->identification(); ?>
+    <form action="seconnecter.php" method="post">
         <h2 class="text-center"></h2>
         <div class="form-group">
             <input type="text" name="nom_du_compte" class="form-control" placeholder="nom du compte" >
