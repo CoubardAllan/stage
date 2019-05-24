@@ -1,9 +1,9 @@
 <?php
 require_once 'src/connexion.php';
 require_once 'src/session.php';
+require_once 'src/deconnexion.php';
 class authentification{
     private $login;
-
     private $session;
     public function __construct()
     {
@@ -27,14 +27,10 @@ class authentification{
         return false;
     }
     public function deco(){
-        $this->session = session::existe('utilisateur');
-        if (isset($_SESSION['utilisateur'])) {
-            session_start();
+        if (session::existe('utilisateur')) {
             unset($_SESSION['utilisateur']);
-            header('Location: seconnecter.php');
+            header('Location: ./seconnecter.php');
             exit();
-        }else{
-            header('location : interface.php');
         }
     }
 

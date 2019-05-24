@@ -57,8 +57,7 @@ $session = session::getSession();
                             <a href="seconnecter.php">>se connecter<</a><h4> <br><br><br><br></td>
                         </th>
                         <th scope="row">
-                            <?php
-                            require_once 'src/authentification.php';
+                            <?php require_once 'src/authentification.php';
                             if (isset($_SESSION['utilisateur'])) {
                                 echo '<a href="src/deconnexion.php">se deconnecter<</a><h4> <br><br><br><br></td>';
                             } ?>
