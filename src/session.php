@@ -1,23 +1,29 @@
 <?php
-require_once 'src/connexion.php';
-require_once 'src/articles.php';
-require_once 'src/requete.php';
 class session{
-    private $session;
-    public function __construct(){
-        if (session_status() !== PHP_SESSION_ACTIVE) {
+    private static $session;
+    private function __construct()
+    {
+        if (session_status() !== PHP_SESSION_ACTIVE){
             session_start();
-            $_SESSION['message'] = 'ajout fait';
         }
     }
-
-
-    public function get($key)
-    {
-        return $_SESSION[$key];
+    public static function getSession(){
+        if (!isset(self::$session)){
+            self::$session = new session();
+        }
+        return self::$session;
     }
-    public function set($key, $values)
-    {
-        $_SESSION[$key]=  $values;
+    public static function get($clef){
+        return self::$session = $_SESSION[$clef];
+    }
+    public static function set($clef, $valeur){
+        self::$session = $_SESSION[$clef] = $valeur;
+    }
+    public static function existe($clef){
+        if ((!empty($_SESSION[$clef])) && (isset($_SESSION[$clef])) ){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

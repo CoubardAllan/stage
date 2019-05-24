@@ -1,5 +1,6 @@
 <?php
 
+
 if ($_POST) {
     require_once 'src/requete.php';
     session_start();
@@ -26,18 +27,31 @@ if ($_POST) {
                 <div class="row">
 
                     <div class="col-12 no-padding form-group">
-                        <label>libelle</label>
-                        <input type="text" class="form-control" name="libelle">
+                        <label>nom</label>
+                        <input type="text" class="form-control" name="nom">
                     </div>
                     <div class="col-12 no-padding form-group">
-                        <label>prix</label>
-                        <input type="number" class="form-control" name="prix">
+                        <label>prenom</label>
+                        <input type="text" class="form-control" name="prenom">
+                    </div>
+                    <div class="col-12 no-padding form-group">
+                        <label>pseudo</label>
+                        <input type="text" class="form-control" name="pseudo">
+                    </div>
+                    <div class="col-12 no-padding form-group">
+                        <label>mdp</label>
+                        <input type="text" class="form-control" name="mdp">
+                    </div>
+                    <div class="col-12 no-padding form-group">
+                        <label>email</label>
+                        <input type="text" class="form-control" name="email">
                     </div>
                     <div class="col-12 no-padding">
                         <button type="submit" class="btn btn-primary">save</button>
                     </div>
+
                     <div class="col-12 no-padding">
-                        <a href="interface.php">>voir mes articles<</a>
+                        <a href="interface.php">>voir mes personnages<</a>
                     </div>
                 </div>
             </form>
