@@ -22,8 +22,8 @@
 <div class="login-form">
     <?php
     if($_POST) {
-        require_once 'src/login.php';
-        $login = new login();
+        require_once 'src/authentification.php';
+        $login = new authentification();
         $login->identification();
     }
     ?>
