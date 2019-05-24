@@ -1,9 +1,9 @@
 <?php
-require 'src/session.php';
+require_once 'src/session.php';
 $session = session::getSession();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -55,6 +55,13 @@ $session = session::getSession();
                                  </th>
                         <th scope="row">
                             <a href="seconnecter.php">>se connecter<</a><h4> <br><br><br><br></td>
+                        </th>
+                        <th scope="row">
+                            <?php
+                            require_once 'src/login.php';
+                            if (isset($_SESSION['utilisateur'])) {
+                                echo '<a href="src/deconnexion.php">se deconnecter<</a><h4> <br><br><br><br></td>';
+                            } ?>
                         </th>
                     </tbody>
                 </table>

@@ -1,11 +1,9 @@
 <?php
-require 'src/connexion.php';
-require 'src/session.php';
+require_once 'src/connexion.php';
+require_once 'src/session.php';
 class login{
     private $login;
-    /**
-     * @var session
-     */
+
     private $session;
     public function __construct()
     {
@@ -21,10 +19,12 @@ class login{
             $user = $result->fetchAll();
             if($user){
                 $this->session->set('utilisateur', $user);
+                session_start();
                 header('Location: interface.php');
             }
             return false;
         }
         return false;
     }
+
 }
