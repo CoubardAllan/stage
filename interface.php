@@ -1,5 +1,6 @@
 <?php
-session_start();
+require 'src/session.php';
+$session = session::getSession();
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,6 +10,11 @@ session_start();
 <body>
 <div class="container">
     <div class="row margin-top">
+        <div style="margin:20px" class="col-6 mx-auto">
+            <?php if($session->existe('utilisateur')) :?>
+                un utilisateur
+            <?php endif ?>
+        </div>
         <div class="col-8 mx-auto">
             <div class="row">
                 <?php require_once 'src/session.php'; ?>

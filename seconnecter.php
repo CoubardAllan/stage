@@ -20,9 +20,13 @@
 </head>
 <body>
 <div class="login-form">
-    <?php require_once 'src/login.php'; ?>
-    <?php $login = new login(); ?>
-    <?php $login->identification(); ?>
+    <?php
+    if($_POST) {
+        require_once 'src/login.php';
+        $login = new login();
+        $login->identification();
+    }
+    ?>
     <form action="seconnecter.php" method="post">
         <h2 class="text-center"></h2>
         <div class="form-group">
