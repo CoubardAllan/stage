@@ -1,7 +1,7 @@
 # stage
 **Semaine 1:**
 
-*.Jour 1: 
+.Jour 1: 
     -entrainement aux requetes sql et mise en  place mon espace de travail avec git.
 
 *.Jour 2:
