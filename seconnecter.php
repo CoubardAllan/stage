@@ -1,5 +1,6 @@
 <?php
-
+require 'vendor/autoload.php';
+use App\authentification;
 ?>
 <html lang="en">
 <head>

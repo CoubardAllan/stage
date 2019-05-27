@@ -1,8 +1,10 @@
 <?php
+require 'vendor/autoload.php';
+
+use App\requete;
 
 
 if ($_POST) {
-    require_once 'src/requete.php';
     session_start();
     $insertion = new requete();
     $insertion->insertion($_POST);

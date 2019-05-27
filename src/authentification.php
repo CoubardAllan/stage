@@ -1,7 +1,9 @@
 <?php
-require_once 'src/connexion.php';
-require_once 'src/session.php';
-require_once 'src/deconnexion.php';
+namespace App;
+
+use App\Connexion\connexion;
+use App\Session\session;
+
 class authentification{
     private $login;
     private $session;
@@ -19,7 +21,6 @@ class authentification{
             $user = $result->fetchAll();
             if($user){
                 $this->session->set('utilisateur', $user);
-                session_start();
                 header('Location: interface.php');
             }
             return false;
@@ -27,9 +28,9 @@ class authentification{
         return false;
     }
     public function deco(){
-        if (session::existe('utilisateur')) {
+        if ($this->session->existe('utilisateur')) {
             unset($_SESSION['utilisateur']);
-            header('Location: ./seconnecter.php');
+            header('Location: ../seconnecter.php');
             exit();
         }
     }

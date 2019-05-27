@@ -1,6 +1,13 @@
 <?php
-require_once 'src/session.php';
+require 'vendor/autoload.php';
+use App\Session\session;
+use App\requete;
+
+/** @var session $session */
 $session = session::getSession();
+if($session->existe('utilisateur') === null){
+    header('Location: seconnecter.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +24,12 @@ $session = session::getSession();
         </div>
         <div class="col-8 mx-auto">
             <div class="row">
-                <?php require_once 'src/session.php'; ?>
-                    <?php $session = session::getSession(); ?>
-                            <?php if($session->existe('message')) :?>
-                                <div class="alert alert-primary" role="alert">
-                                    <?php echo $session->get('message'); ?>
-                                    <?php  unset($_SESSION['message']); ?>
-                                </div>
-                            <?php endif ?>
+                <?php if($session->existe('message')) :?>
+                    <div class="alert alert-primary" role="alert">
+                        <?php echo $session->get('message'); ?>
+                        <?php  unset($_SESSION['message']); ?>
+                    </div>
+                <?php endif ?>
                     <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -36,9 +41,6 @@ $session = session::getSession();
                     <tbody>
                         <tr>
                             <?php
-                            require_once 'src/requete.php';
-                            require_once 'src/connexion.php';
-                            require_once 'src/personnage.php';
                             $query = new requete();
                             $afficher = $query->selection('personnage');
                              foreach ($afficher as $row) :
@@ -50,16 +52,14 @@ $session = session::getSession();
                                 </tr>
                              <?php endforeach ; ?>
                         </tr>
-                                 <th scope="row">
-                                 <a href="ajoutformulaire.php">>ajout d'un personnage<</a><h4> <br><br><br><br></td>
-                                 </th>
                         <th scope="row">
-                            <a href="seconnecter.php">>se connecter<</a><h4> <br><br><br><br></td>
+                            <a href="ajoutformulaire.php">>ajout d'un personnage<</a><h4>
                         </th>
+
                         <th scope="row">
-                            <?php require_once 'src/authentification.php';
+                            <?php
                             if (isset($_SESSION['utilisateur'])) {
-                                echo '<a href="src/deconnexion.php">se deconnecter<</a><h4> <br><br><br><br></td>';
+                                echo '<a href="src/deconnexion.php">se deconnecter<</a><h4></td>';
                             } ?>
                         </th>
                     </tbody>

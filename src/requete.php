@@ -1,6 +1,8 @@
 <?php
-require_once 'src/connexion.php';
-require_once 'src/personnage.php';
+namespace App;
+use App\Connexion\connexion;
+use App\Session\session;
+
 class requete{
     private $connexion;
     public function __construct()
@@ -19,7 +21,6 @@ class requete{
         return $tableau;
     }
     public function insertion($data){
-        require_once 'src/session.php';
         if ((isset($data['nom']) || (isset($data['prenom'])) || (isset($data['pseudo'])) || (isset($data['mdp'])) || (isset($data['email']))  && (!empty($data['nom'])) || (!empty($data['prenom'])) || (!empty($data['pseudo']))|| (!empty($data['mdp'])) || (!empty($data['email'])) )){
             $requete = 'INSERT INTO personnage( nom, prenom, pseudo, mdp, email) VALUES (?,?,?,?,?)';
             $this->connexion->prepare($requete)->execute([$data['nom'],$data['prenom'],$data['pseudo'],$data['mdp'],$data['email']]);
