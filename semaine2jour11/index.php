@@ -1,9 +1,11 @@
 <?php
 
-if (isset($_FILES['submit'])){
+if (isset($_POST['submit'])){
     $tmp_name = $_FILES['fichier']['tmp_name'];
-    move_uploaded_file($tmp_name, 'image/test.jpg');
-    var_dump($tmp_name);
+    var_dump($_FILES);
+    if(move_uploaded_file($tmp_name, 'image/'. $_FILES['fichier']['name'])) {
+        var_dump($tmp_name);
+    }
 }
 
 ?>
