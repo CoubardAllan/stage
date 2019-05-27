@@ -2,15 +2,19 @@
 **Semaine 1:**
 
 *.Jour 1: 
+
     -entrainement aux requetes sql et mise en  place mon espace de travail avec git.
 
 *.Jour 2:
+
     -Travail sur de la programmation objet, de correction de code et ecriture de fonction. a nouveau du code en objet mais plus          complexe.
 
 *.Jour 3:
+
     -Création des requetes select, insert into et delete dans une class ainsi et création d'une requete update dans une class.
 
 *.Jour 4:
+
     -Début du mini projet 1 avec la mise en place d'une interface affichant un tableau avec les données nom, prenom, et pseudo des       personnages présent dans la base de données ainsi que l'utilisation de bootstrap pour faire le tableau et mise en place de requete      pour permettre l'affichage des personnages dans notre tableau.
 
 *.Jour 5:
