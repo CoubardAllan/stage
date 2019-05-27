@@ -1,11 +1,11 @@
 # stage
-**Semaine 1:**
+#**Semaine 1:**
 
-*.Jour 1: 
+## Jour 1: 
 
 -entrainement aux requetes sql et mise en  place mon espace de travail avec git.
 
-*.Jour 2:
+## Jour 2:
 
 -Travail sur de la programmation objet, de correction de code et ecriture de fonction. a nouveau du code en objet mais plus          complexe.
 
